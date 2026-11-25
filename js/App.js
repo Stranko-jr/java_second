@@ -97,3 +97,27 @@ function generateOrderCode(customerName) {
 }
 
 console.log(generateOrderCode("Matas"));
+
+
+
+
+
+const games = [
+    { title: "Cyberpunk 2077", genre: "RPG", price: 59.99 },
+    { title: "Baldur's Gate 3", genre: "RPG", price: 69.99 },
+    { title: "The Witcher 3", genre: "RPG", price: 39.99 },
+    { title: "Hades", genre: "Roguelike", price: 24.99 },
+    { title: "Forza Horizon 5", genre: "Racing", price: 59.99 },
+    { title: "Stardew Valley", genre: "Simulation", price: 14.99 },
+    { title: "Hollow Knight", genre: "Action", price: 14.99 }
+];
+
+function getGamesByGenreWithDiscount(games, genre, discountPercent) {
+    return games.map(g => ({
+        title: g.title,
+        genre: g.genre,
+        price: +(g.price * (100 - discountPercent) / 100).toFixed(2)
+    })).filter(g => g.genre.toLowerCase() === genre.toLowerCase());
+}
+
+console.log(getGamesByGenreWithDiscount(games, "rpg", 20));
